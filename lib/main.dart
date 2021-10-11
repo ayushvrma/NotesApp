@@ -39,7 +39,21 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     final Box<Task> taskBox = Hive.box('tasks');
     return Scaffold(
-      body: ,
+      body: GridView.builder(
+          gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
+              maxCrossAxisExtent: 200,
+              childAspectRatio: 3 / 2,
+              crossAxisSpacing: 20,
+              mainAxisSpacing: 20),
+          itemCount: taskBox.length,
+          itemBuilder: (BuildContext ctx, index) {
+            return Container(
+              alignment: Alignment.center,
+              child: Text(taskBox.getAt(index)!.title),
+              decoration: BoxDecoration(
+                  color: Colors.amber, borderRadius: BorderRadius.circular(15)),
+            );
+          }),
       floatingActionButton: FloatingActionButton(
         // When the user presses the button, show an alert dialog containing
         // the text that the user has entered into the text field.

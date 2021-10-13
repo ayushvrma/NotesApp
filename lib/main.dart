@@ -50,7 +50,12 @@ class _HomePageState extends State<HomePage> {
           itemBuilder: (BuildContext ctx, index) {
             return Container(
               alignment: Alignment.center,
-              child: Text(taskBox.getAt(index)!.title),
+              child: Column(
+                children: [
+                  Text(taskBox.getAt(index)!.title),
+                  Text(taskBox.getAt(index)!.descp),
+                ],
+              ),
               decoration: BoxDecoration(
                   color: Colors.amber, borderRadius: BorderRadius.circular(15)),
             );
@@ -91,6 +96,7 @@ class _HomePageState extends State<HomePage> {
                       myController.text = '';
                       myController2.text = '';
                       Navigator.pop(context, 'Cancel');
+                      setState(() {});
                     },
                     child: const Text('Cancel'),
                   ),
@@ -100,6 +106,7 @@ class _HomePageState extends State<HomePage> {
                       myController.text = '';
                       myController2.text = '';
                       Navigator.pop(context, 'OK');
+                      setState(() {});
                     },
                     child: const Text('OK'),
                   ),

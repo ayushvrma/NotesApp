@@ -102,7 +102,7 @@ class _HomePageState extends State<HomePage> {
                   ),
                   TextButton(
                     onPressed: () {
-                      taskBox.add(Task(myController.text, 'descp'));
+                      taskBox.add(Task(myController.text, myController2.text));
                       myController.text = '';
                       myController2.text = '';
                       Navigator.pop(context, 'OK');

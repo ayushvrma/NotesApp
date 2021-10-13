@@ -34,6 +34,7 @@ class HomePage extends StatefulWidget {
 
 class _HomePageState extends State<HomePage> {
   TextEditingController myController = TextEditingController();
+  TextEditingController myController2 = TextEditingController();
 
   @override
   Widget build(BuildContext context) {
@@ -64,18 +65,31 @@ class _HomePageState extends State<HomePage> {
               return AlertDialog(
                 // Retrieve the text the that user has entered by using the
                 // TextEditingController.
-                content: TextField(
-                  controller: myController,
-                  autofocus: true,
-                  decoration: InputDecoration(
-                    border: OutlineInputBorder(),
-                    labelText: 'Enter a Task',
-                  ),
+                content: Column(
+                  children: [
+                    TextField(
+                      controller: myController,
+                      autofocus: true,
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(),
+                        labelText: 'Enter a Task',
+                      ),
+                    ),
+                    TextField(
+                      controller: myController2,
+                      autofocus: true,
+                      decoration: InputDecoration(
+                        border: OutlineInputBorder(),
+                        labelText: 'Enter a Description',
+                      ),
+                    ),
+                  ],
                 ),
                 actions: <Widget>[
                   TextButton(
                     onPressed: () {
                       myController.text = '';
+                      myController2.text = '';
                       Navigator.pop(context, 'Cancel');
                     },
                     child: const Text('Cancel'),
@@ -84,6 +98,7 @@ class _HomePageState extends State<HomePage> {
                     onPressed: () {
                       taskBox.add(Task(myController.text, 'descp'));
                       myController.text = '';
+                      myController2.text = '';
                       Navigator.pop(context, 'OK');
                     },
                     child: const Text('OK'),

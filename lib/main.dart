@@ -20,7 +20,7 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(primaryColor: Color(0xff0D3257)),
+      theme: ThemeData.dark(),
       home: HomePage(),
     );
   }
@@ -40,6 +40,7 @@ class _HomePageState extends State<HomePage> {
   Widget build(BuildContext context) {
     final Box<Task> taskBox = Hive.box('tasks');
     return Scaffold(
+      backgroundColor: Colors.black,
       body: GridView.builder(
           gridDelegate: SliverGridDelegateWithMaxCrossAxisExtent(
               maxCrossAxisExtent: 200,
@@ -57,7 +58,9 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
               decoration: BoxDecoration(
-                  color: Colors.amber, borderRadius: BorderRadius.circular(15)),
+                  color: Colors.black54,
+                  borderRadius: BorderRadius.circular(15),
+                  border: Border.all(color: Colors.white)),
             );
           }),
       floatingActionButton: FloatingActionButton(

@@ -59,6 +59,12 @@ flutter:
   # included with your application, so that you can use the icons in
   # the material Icons class.
   uses-material-design: true
+  fonts:
+    - family: SanFrancisco
+      fonts:
+        - asset: assets/fonts/SanFranciscoDisplay-Black.otf
+        - asset: assets/fonts/SanFranciscoDisplay-Regular.otf
+        
 
   # To add assets to your application, add an assets section, like this:
   # assets:

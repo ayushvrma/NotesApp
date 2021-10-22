@@ -36,6 +36,7 @@ dependencies:
   cupertino_icons: ^1.0.2
   hive: ^2.0.4
   hive_flutter: ^1.1.0
+  custom_navigation_bar: ^0.8.2
 
 dev_dependencies:
   flutter_test:
@@ -62,8 +63,8 @@ flutter:
   fonts:
     - family: SanFrancisco
       fonts:
-        - asset: assets/fonts/SanFranciscoDisplay-Black.otf
-        - asset: assets/fonts/SanFranciscoDisplay-Regular.otf
+        - asset: assets\fonts\SanFranciscoDisplay-Black.otf
+        - asset: assets\fonts\SanFranciscoDisplay-Regular.otf
         - weight: 700
         
 

@@ -20,7 +20,9 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
-      theme: ThemeData(fontFamily: 'SanFrancisco'),
+      theme: ThemeData.from(
+          colorScheme: const ColorScheme.highContrastDark(
+              background: Color(0xff1D2025))),
       home: HomePage(),
     );
   }
@@ -58,7 +60,7 @@ class _HomePageState extends State<HomePage> {
                 ],
               ),
               decoration: BoxDecoration(
-                  color: Colors.black54,
+                  //color: Colors.black54,
                   borderRadius: BorderRadius.circular(15),
                   border: Border.all(color: Colors.white)),
             );

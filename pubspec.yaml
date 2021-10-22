@@ -64,6 +64,7 @@ flutter:
       fonts:
         - asset: assets/fonts/SanFranciscoDisplay-Black.otf
         - asset: assets/fonts/SanFranciscoDisplay-Regular.otf
+        - weight: 700
         
 
   # To add assets to your application, add an assets section, like this:

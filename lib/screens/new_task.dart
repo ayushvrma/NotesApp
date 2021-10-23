@@ -1,5 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:custom_navigation_bar/custom_navigation_bar.dart';
+import 'package:hive/hive.dart';
+import 'package:hive_flutter/hive_flutter.dart';
+import 'package:notes_app/models/tasks.dart';
 
 class NewTask extends StatefulWidget {
   @override
@@ -7,6 +10,9 @@ class NewTask extends StatefulWidget {
 }
 
 class _NewTaskState extends State<NewTask> {
+  TextEditingController myController = TextEditingController();
+  TextEditingController myController2 = TextEditingController();
+  final Box<Task> taskBox = Hive.box('tasks');
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -29,7 +35,30 @@ class _NewTaskState extends State<NewTask> {
             CustomNavigationBarItem(icon: Icon(Icons.palette)),
             CustomNavigationBarItem(icon: Icon(Icons.more))
           ]),
-      body: Container(alignment: Alignment.center, child: Text('lets go')),
+      body: Column(
+        children: [
+          TextField(
+            controller: myController,
+            onChanged: (text) {
+              taskBox.add(Task(myController.text, ''));
+              myController.text = '';
+            },
+            autofocus: true,
+            decoration: InputDecoration(
+              border: OutlineInputBorder(),
+              labelText: 'Enter a Task',
+            ),
+          ),
+          TextField(
+            controller: myController2,
+            autofocus: true,
+            decoration: InputDecoration(
+              border: OutlineInputBorder(),
+              labelText: 'Enter a Description',
+            ),
+          ),
+        ],
+      ),
     );
   }
 }

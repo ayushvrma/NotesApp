@@ -39,18 +39,19 @@ class _NewTaskState extends State<NewTask> {
         children: [
           TextField(
             controller: myController,
-            onChanged: (text) {
-              taskBox.add(Task(myController.text, ''));
-              myController.text = '';
-            },
             autofocus: true,
             decoration: InputDecoration(
               border: OutlineInputBorder(),
-              labelText: 'Enter a Task',
+              labelText: 'Title',
             ),
           ),
           TextField(
             controller: myController2,
+            onChanged: (text) {
+              taskBox.add(Task(myController.text, myController2.text));
+              myController2.text = '';
+              myController.text = '';
+            },
             autofocus: true,
             decoration: InputDecoration(
               border: OutlineInputBorder(),
